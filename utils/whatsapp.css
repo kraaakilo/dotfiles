@@ -1,0 +1,8 @@
+svg circle {
+	stroke : none !important;
+}
+
+span[data-icon="community-tab-unread"],
+span[data-icon="status-v3-unread"]{
+	display: none;
+}

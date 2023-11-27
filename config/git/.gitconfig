@@ -1,0 +1,10 @@
+[core]
+	excludesFile = ~/.gitignore
+	autocrlf = input
+[user]
+	name = Kraaakilo
+	email = marcelvishnk@gmail.com
+[fetch]
+	prune = true
+[init]
+	defaultBranch = master
