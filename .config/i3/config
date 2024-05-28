@@ -182,6 +182,24 @@ exec --no-startup-id sleep 5 && /usr/bin/firefox
 exec --no-startup-id ~/.config/i3/scripts/monitors.sh
 exec --no-startup-id /usr/bin/dunst --config ~/.config/dunst/dunstrc
 
+# Power And Screen Management
+
+# Disable the default screen saver
+exec --no-startup-id xset s off
+# Disable DPMS (Energy Star) features to reset the values
+exec --no-startup-id xset -dpms
+
+# Set the screen saver to trigger after 600 seconds (10 minutes)
+exec --no-startup-id xset s 600 600
+
+# Enable DPMS
+exec --no-startup-id xset +dpms
+# Set DPMS timeouts: standby disabled, suspend disabled, off after 15 minutes
+exec --no-startup-id xset dpms 0 0 900
+
+# Start autolock with a 20-minutes timer
+xautolock -time 20 -locker "betterlockscreen -l dim"
+
 # Windows Floating Rules
 for_window [class="Yad" instance="yad"] floating enable
 for_window [class="Galculator" instance="galculator"] floating enable
