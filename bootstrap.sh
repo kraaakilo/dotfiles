@@ -6,6 +6,8 @@ HOME_DIR=~
 function tripleASetup(){
     rsync --exclude 'bootstrap.sh' \
     --exclude '.git' \
+    --exclude 'shots' \
+    --exclude 'README.md' \
     --exclude 'packages.sh' \
     --exclude 'packages' \
     -avh . "$HOME_DIR"
