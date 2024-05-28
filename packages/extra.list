@@ -1,5 +1,9 @@
 rsync
+i3
 alacritty
+vim
+kvantum-qt5
+thunar
 arc-gtk-theme
 epapirus-icon-theme
 tmux
@@ -16,6 +20,8 @@ npm
 copyq
 spotify-launcher
 yarn
+pnpm
+php
 fzf
 ripgrep
 kvantum
