@@ -41,22 +41,22 @@ To install these dotfiles, clone the repository and run the `bootstrap.sh` scrip
 ## Screenshots
 
 - Desktop Overview
-  - [![Desktop Overview](shots/shot-2.png)](shots/shot-1.png)
+  - [![Desktop Overview](shots/shot-1.png)](shots/shot-1.png)
 
 - System Information with Neofetch & btop
-    - [![System Information with Neofetch & btop](shots/shot-1.png)](shots/shot-3.png)
+    - [![System Information with Neofetch & btop](shots/shot-3.png)](shots/shot-3.png)
 
 - Rofi Application Launcher
-    - [![Rofi Application Launcher](shots/shot-3.png)](shots/shot-4.png)
+    - [![Rofi Application Launcher](shots/shot-4.png)](shots/shot-4.png)
 
 - Custom Alias (Fuzzy Edit file)
-    - [![Custom Alias (Fuzzy Edit file)](shots/shot-4.png)](shots/shot-5.png)
+    - [![Custom Alias (Fuzzy Edit file)](shots/shot-5.png)](shots/shot-5.png)
 
 - Fuzzy Search with FZF in history
-    - [![Fuzzy Search with FZF in history](shots/shot-5.png)](shots/shot-6.png)
+    - [![Fuzzy Search with FZF in history](shots/shot-6.png)](shots/shot-6.png)
 
 - Terminal with Alacritty
-    - [![Terminal with Alacritty](shots/shot-7.png)](shots/shot-2.png)
+    - [![Terminal with Alacritty](shots/shot-2.png)](shots/shot-2.png)
     
 - Other Screenshots
     - [![Other Screenshots](shots/shot-9.png)](shots/shot-9.png)
