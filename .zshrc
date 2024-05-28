@@ -1,4 +1,5 @@
-(cat ~/.cache/wal/sequences &)
+# I don't wanna use the wal colors for now
+# (cat ~/.cache/wal/sequences &)
 
 export ZSH="$HOME/.oh-my-zsh"
 
