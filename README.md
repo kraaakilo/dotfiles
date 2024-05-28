@@ -59,4 +59,4 @@ To install these dotfiles, clone the repository and run the `bootstrap.sh` scrip
     - [![Terminal with Alacritty](shots/shot-7.png)](shots/shot-2.png)
     
 - Other Screenshots
-    - [![Other Screenshots](shots/shot-6.png)](shots/shot-9.png)
+    - [![Other Screenshots](shots/shot-9.png)](shots/shot-9.png)
