@@ -1,0 +1,131 @@
+#!/bin/env sh
+
+# Function to display an error message and exit
+function error_exit {
+    echo "$1" 1>&2
+    exit 1
+}
+
+function log {
+    echo "$(date +'%Y-%m-%d %H:%M:%S') - $1";
+}
+
+function install_yay {
+    
+    # Ensure the script is run as a non-root user with sudo privileges
+    if [[ "$EUID" -eq 0 ]]; then
+        error_exit "Please run this script as a non-root user with sudo privileges."
+    fi
+    
+    # Prompt for sudo password upfront
+    sudo -v || error_exit "Failed to obtain sudo privileges."
+    
+    # Update the system and install necessary packages
+    echo "Updating system and installing necessary packages..."
+    sudo pacman -Syu --needed base-devel git --noconfirm || error_exit "Failed to install base-devel and git."
+    
+    # Clone the yay repository from the AUR
+    echo "Cloning the yay repository..."
+    git clone https://aur.archlinux.org/yay.git || error_exit "Failed to clone the yay repository."
+    
+    # Change to the yay directory
+    cd yay || error_exit "Failed to change to the yay directory."
+    
+    # Build and install yay
+    echo "Building and installing yay..."
+    makepkg -si --noconfirm || error_exit "Failed to build and install yay."
+    
+    # Clean up by removing the cloned repository
+    cd ..
+    rm -rf yay
+    
+    echo "yay installation completed successfully."
+}
+
+function install_aur_packages {
+    AUR_PACKAGES="packages/aur.list"
+    echo "Reading package list from $AUR_PACKAGES."
+    while IFS= read -r package || [[ -n "$package" ]]; do
+        if [[ ! -z "$package" && "$package" != \#* ]]; then
+            echo "Installing $package..."
+            yay -S --noconfirm "$package" || error_exit "Failed to install $package."
+        fi
+    done < "$AUR_PACKAGES"
+    echo "AUR packages installation completed successfully."
+}
+
+
+function install_official_packages {
+    OFFICIAL_PACKAGES="packages/extra.list"
+    echo "Reading package list from $OFFICIAL_PACKAGES."
+    while IFS= read -r package || [[ -n "$package" ]]; do
+        if [[ ! -z "$package" && "$package" != \#* ]]; then
+            echo "Installing $package..."
+            sudo pacman -S --noconfirm "$package" || error_exit "Failed to install $package."
+        fi
+    done < "$OFFICIAL_PACKAGES"
+    echo "Official packages installation completed successfully."
+}
+
+function install_oh_my_zsh {
+    # Install Oh My Zsh
+    log "Installing Oh My Zsh"
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" || error_exit "Failed to install Oh My Zsh"
+    
+    # Install Oh My Zsh plugins
+    log "Installing Oh My Zsh plugins"
+    
+    # Install zsh-autosuggestions
+    log "Installing zsh-autosuggestions"
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions || error_exit "Failed to install zsh-autosuggestions"
+    
+    # Install zsh-syntax-highlighting
+    log "Installing zsh-syntax-highlighting"
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting || error_exit "Failed to install zsh-syntax-highlighting"
+}
+
+function setup_tmux {
+    # Setup TPM (Tmux Plugin Manager)
+    log "Installing TPM (Tmux Plugin Manager)"
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm || error_exit "Failed to install TPM (Tmux Plugin Manager)"
+}
+
+function main {
+    if [[ "$#" -eq 0 ]]; then
+        echo "Usage: $0 [yay|aur|official|oh-my-zsh|tmux|all]"
+        exit 1
+    fi
+
+    for option in "$@"; do
+        case "$option" in
+            yay)
+                install_yay
+                ;;
+            aur)
+                install_aur_packages
+                ;;
+            official)
+                install_official_packages
+                ;;
+            omz)
+                install_oh_my_zsh
+                ;;
+            tmux)
+                setup_tmux
+                ;;
+            all)
+                install_yay
+                install_aur_packages
+                install_official_packages
+                install_oh_my_zsh
+                setup_tmux
+                ;;
+            *)
+                echo "Invalid option: $option"
+                exit 1
+                ;;
+        esac
+    done
+}
+
+main "$@"
