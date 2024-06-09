@@ -37,7 +37,7 @@ separator-foreground = ${colors.disabled}
 font-0 = "JetBrainsMono NFM:size=11.7"
 font-1 = FontAwesome;1
 
-modules-left = xworkspaces triplea
+modules-left = xworkspaces
 modules-right = battery pulseaudio spotify systray
 modules-center = date
 
@@ -98,6 +98,7 @@ type = internal/pulseaudio
 format-volume-prefix = " "
 format-volume = <label-volume>
 click-right = pavucontrol
+click-middle=pulseaudio-control --node-blacklist "alsa_output.pci-0000_01_00.1.hdmi-stereo-extra2" next-node
 
 label-volume = %percentage%%
 
@@ -181,8 +182,6 @@ click-left = pulseaudio-control togmute
 click-middle = pulseaudio-control --node-blacklist "alsa_output.pci-0000_01_00.1.hdmi-stereo-extra2" next-node
 scroll-up = pulseaudio-control --volume-max 130 up
 scroll-down = pulseaudio-control --volume-max 130 down
-
-
 
 [module/spotify]
 type = custom/script

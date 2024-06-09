@@ -1,26 +1,37 @@
 live_config_reload = true
+import = [
+  "~/.config/alacritty/catppuccin-mocha.toml"
+]
 
 [env]
 TERM = "xterm-256color"
 
 [font]
-size = 11.0
-normal = { family = "JetBrainsMonoNL Nerd Font", style = "Regular" }
-bold = { family = "JetBrainsMonoNL Nerd Font", style = "Bold" }
-italic = { family = "JetBrainsMonoNL Nerd Font", style = "Italic" }
+size = 11
+
+  [font.normal]
+  family = "JetBrainsMonoNL Nerd Font"
+  style = "Regular"
+
+  [font.bold]
+  family = "JetBrainsMonoNL Nerd Font"
+  style = "Bold"
+
+  [font.italic]
+  family = "JetBrainsMonoNL Nerd Font"
+  style = "Italic"
 
 [mouse]
 hide_when_typing = true
 
-[[mouse.bindings]]
-action = "PasteSelection"
-mouse = "Middle"
+  [[mouse.bindings]]
+  action = "PasteSelection"
+  mouse = "Middle"
 
 [window]
 decorations = "buttonless"
 dynamic_padding = false
-# padding.x = 20
 
 [shell]
 program = "/usr/bin/zsh"
-args = ["-l", "-c", "tmux attach || tmux new -s 'TripleA'"]
+args = [ "-l", "-c", "tmux attach || tmux new -s 'TripleA'" ]
