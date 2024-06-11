@@ -1,10 +1,5 @@
-# I don't wanna use the wal colors for now
-# (cat ~/.cache/wal/sequences &)
-
 export ZSH="$HOME/.oh-my-zsh"
-
-# ZSH theme
-ZSH_THEME="steeef"
+export FPATH="/home/kraaakilo/apps/cli/completions/zsh:$FPATH"
 
 # ZSH plugins
 plugins=(
@@ -26,3 +21,12 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
+
+# PYENV Support
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# StarShip.rs
+eval "$(starship init zsh)"

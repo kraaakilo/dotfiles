@@ -7,21 +7,15 @@ export PATH=$PATH:$HOME/Android/Sdk/platform-tools
 export PATH=$PATH:$HOME/.config/composer/vendor/bin
 export PATH=$PATH:$HOME/.pub-cache/bin
 export PATH=$PATH:$HOME/apps/cli
-export PATH=$PATH:$HOME/.spicetify/
 export PATH=$PATH:$HOME/apps/sdks/flutter/bin
-
-export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
-export BROWSER=$CHROME_EXECUTABLE
-export DOTNET_ROOT=$HOME/.dotnet
-
 # PATH Variables | End
 
 # Aliases | Start
-alias vim='nvim'
+alias v='nvim'
 alias pbcopy='xsel --input --clipboard'
 alias pbpaste='xsel --output --clipboard'
 alias sfs='fzf --preview="cat {}" --walker-skip=.git,vendor,node_modules -i'
-alias efs='nvim $(sfs)'alias efs='file=$(sfs) && [ -n "$file" ] && nvim "$file"'
+alias efs='file=$(sfs) && [ -n "$file" ] && nvim "$file"'
 alias off='shutdown -h now'
 alias reb='systemctl reboot'
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
@@ -32,10 +26,11 @@ alias cdl='cd ~/Labs/; clear; tput setaf 4; echo -e "\033[1;34mHello Mr TripleA;
 alias cdv='cd ~/Labs/devops; clear; tput setaf 6; echo -e "\033[1;36mHello Mr TripleA;\033[0m \033[1;35mWelcome to the DevOps Lab!\033[0m"; tput sgr0'
 alias cdw='cd ~/Labs/windows; clear; tput setaf 3; echo -e "\033[1;33mHello Mr TripleA;\033[0m \033[1;36mWelcome to the Windows Lab!\033[0m"; tput sgr0'
 alias cdm='cd ~/Labs/machine-learning/; clear; tput setaf 3; echo -e "\033[1;33mHello Mr TripleA;\033[0m \033[1;36mWelcome to the Machine Learning Lab!\033[0m"; tput sgr0'
+alias cdt='cd ~/trashable; clear; tput setaf 3; echo -e "\033[1;33mHello Mr TripleA;\033[0m \033[1;36mWelcome to your Trashable directory!\033[0m"; tput sgr0'
 alias phpd='php -S localhost:7000 -ddisplay_errors=1 -dzend_extension=xdebug.so -dxdebug.remote_enable=1'
 alias dccall='docker stop $(docker ps -aq) > /dev/null && docker rm $(docker ps -aq) > /dev/null'
 alias dccdi='docker rmi $(docker images -f "dangling=true" -q)'
-alias pma='docker rm phpmyadmin --force && docker run --name phpmyadmin -d -e PMA_HOST=192.168.1.2 -p 9876:80 phpmyadmin'
+alias pma='docker rm phpmyadmin --force && docker run --name phpmyadmin -d -e PMA_HOST=192.168.1.30 -p 9876:80 phpmyadmin'
 alias pfn='ping ping-eu.ds.on.epicgames.com'
 alias pve='ssh -i ~/Labs/devops/pve root@192.168.1.10'
 # Aliases | End
@@ -61,12 +56,3 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # PNPM | End
-
-# BUN | Start
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-# BUN | End
-
-# BUN | Source | Start
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-# BUN | Source | End

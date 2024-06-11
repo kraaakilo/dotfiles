@@ -9,7 +9,7 @@ This repository contains my personal configuration files (dotfiles) for various 
 - **GTK**: Theme and appearance that i use.
 - **i3**: Window manager configuration and scripts that make my workflow easier.
 - **Neofetch**: System information tool configuration trick to ALWAYS display arch 😂. (I use arch btw :lol)
-- **Picom**: Compositor settings for transparency and effects. Here i pick an fork of picom called picom-arian8j2-git
+- **Picom**: Compositor settings for transparency and effects.
 - **Polybar**: My minimalistic status bar configuration.
 - **Rofi**: Application launcher and window switcher.
 - **Tmux**: Terminal multiplexer settings.

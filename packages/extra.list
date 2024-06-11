@@ -1,5 +1,6 @@
 rsync
 i3-wm
+picom
 alacritty
 vim
 kvantum-qt5
@@ -38,3 +39,4 @@ ttf-jetbrains-mono
 ttf-roboto
 xautolock
 dex
+starship

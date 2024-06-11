@@ -98,7 +98,7 @@ bindsym $mod+n exec --no-startup-id smile
 bindsym $mod+d exec --no-startup-id dmenu_run
 bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+e exec --no-startup-id /usr/bin/thunar
-bindsym $mod+w exec --no-startup-id /usr/bin/firefox
+bindsym $mod+w exec --no-startup-id /usr/bin/firefox-developer-edition
 bindsym $mod+Shift+s exec --no-startup-id gnome-screenshot -i
 bindsym $mod+l exec --no-startup-id exec betterlockscreen -l dim
 bindsym $mod+Shift+e exec --no-startup-id ~/.config/i3/scripts/powermenu
@@ -178,7 +178,7 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 exec --no-startup-id ~/apps/cli/updater
-exec --no-startup-id sleep 5 && /usr/bin/firefox
+exec --no-startup-id sleep 5 && /usr/bin/firefox-developer-edition
 exec --no-startup-id ~/.config/i3/scripts/monitors.sh
 exec --no-startup-id /usr/bin/dunst --config ~/.config/dunst/dunstrc
 
@@ -231,6 +231,6 @@ client.placeholder      $bg     $bg     $fg     $bg     $bg
 client.background       $bg
 
 # Windows gaps
-gaps inner 6
+gaps inner 3
 gaps outer 6
 smart_gaps off
