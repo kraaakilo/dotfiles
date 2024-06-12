@@ -115,6 +115,12 @@ bindsym XF86AudioMute exec --no-startup-id ~/.config/i3/scripts/volume mute
 bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3/scripts/volume up
 bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/i3/scripts/volume down
 
+# Resize mode Configuration
+bindsym $mod+Ctrl+Right resize shrink width 1 px or 1 ppt
+bindsym $mod+Ctrl+Up resize grow height 1 px or 1 ppt
+bindsym $mod+Ctrl+Down resize shrink height 1 px or 1 ppt
+bindsym $mod+Ctrl+Left resize grow width 1 px or 1 ppt
+
 # Workspace behavior configuration.
 set $ws1 "1:"
 set $ws2 "2:"
