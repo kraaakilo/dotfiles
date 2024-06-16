@@ -4,7 +4,7 @@ HOME_DIR=~
 
 # Function to sync files to the home directory, excluding certain files/directories
 function tripleASetup(){
-    rsync --exclude 'bootstrap.sh' \
+    # rsync --exclude 'bootstrap.sh' \
     --exclude '.git' \
     --exclude 'shots' \
     --exclude 'README.md' \
