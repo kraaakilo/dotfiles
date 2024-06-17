@@ -14,7 +14,7 @@ export PATH=$PATH:$HOME/apps/sdks/flutter/bin
 alias v='nvim'
 alias pbcopy='xsel --input --clipboard'
 alias pbpaste='xsel --output --clipboard'
-alias sfs='fzf --preview="cat {}" --walker-skip=.git,vendor,node_modules -i'
+alias sfs='fzf --reverse --preview="cat {}" --walker-skip=.git,vendor,node_modules -i'
 alias efs='file=$(sfs) && [ -n "$file" ] && nvim "$file"'
 alias off='shutdown -h now'
 alias reb='systemctl reboot'
@@ -56,3 +56,5 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # PNPM | End
+
+bindkey -s ^f "tmux-sessionizer\n"

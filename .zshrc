@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
-export FPATH="/home/kraaakilo/apps/cli/completions/zsh:$FPATH"
+export FPATH="~/apps/cli/completions/zsh:$FPATH"
 
 # ZSH plugins
 plugins=(
