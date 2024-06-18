@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
-	selected=$(find ~/Labs/ -mindepth 1 -maxdepth 2 -type d,l | fzf)
+	selected=$(find ~/Labs/ -mindepth 1 -maxdepth 2 -type d,l ! -name '.*' | fzf)
 fi
 
 if [[ -z $selected ]]; then
@@ -29,3 +29,4 @@ else
 fi
 
 # Credit : ThePrimeagen
+
