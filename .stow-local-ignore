@@ -19,8 +19,7 @@ _darcs
 ^/LICENSE.*
 ^/COPYING
 
-bootstrap.sh
-packages.sh
-README.md
-/packages
-/shots
+\bootstrap.sh
+\packages.sh
+\packages
+\shots
