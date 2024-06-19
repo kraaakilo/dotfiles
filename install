@@ -2,10 +2,7 @@
 
 HOME_DIR=~
 
-# Function to sync files to the home directory, excluding certain files/directories
 function tripleASetup(){
-    
-    # Check if .local/bin exists, if not create it
     if [ ! -d "$HOME_DIR/.local/bin" ]; then
         mkdir -p "$HOME_DIR/.local/bin"
     fi
@@ -15,10 +12,7 @@ function tripleASetup(){
     --ignore="packages"
 }
 
-# Function to handle i3 configuration specific to a laptop
 function handle_laptop_default_config(){
-    
-    # Define the paths to the i3 config files
     I3_CONFIG="$HOME/.config/i3/config"
     LAPTOP_CONFIG="$HOME/.config/i3/config.lp"
     
@@ -34,7 +28,6 @@ function handle_laptop_default_config(){
     i3-msg reload > /dev/null
 }
 
-# Main script logic
 if [ "$1" == "--force" ] || [ "$1" == "-f" ]; then
     tripleASetup
     if [ "$2" == "--laptop" ]; then
@@ -55,6 +48,5 @@ else
     fi
 fi
 
-# Unset the functions to clean up the environment
 unset -f tripleASetup
 unset -f handle_laptop_default_config
