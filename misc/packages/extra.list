@@ -12,10 +12,14 @@ lxappearance
 qt5ct
 qt6ct
 kvantum
+virtualbox
 nodejs
+discord
 npm
+fd
 yarn
 pnpm
+btop
 php
 rsync
 tmux
@@ -30,9 +34,11 @@ htop
 neofetch
 xsel
 starship
+stow
 ttf-jetbrains-mono-nerd
 ttf-jetbrains-mono
 ttf-roboto
 firefox
 copyq
 spotify-launcher
+youtube-dl

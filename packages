@@ -43,7 +43,7 @@ function install_yay {
 }
 
 function install_aur_packages {
-    AUR_PACKAGES="packages/aur.list"
+    AUR_PACKAGES="misc/packages/aur.list"
     echo "Reading package list from $AUR_PACKAGES."
     while IFS= read -r package || [[ -n "$package" ]]; do
         if [[ ! -z "$package" && "$package" != \#* ]]; then
@@ -56,7 +56,7 @@ function install_aur_packages {
 
 
 function install_official_packages {
-    OFFICIAL_PACKAGES="packages/extra.list"
+    OFFICIAL_PACKAGES="misc/packages/extra.list"
     echo "Reading package list from $OFFICIAL_PACKAGES."
     while IFS= read -r package || [[ -n "$package" ]]; do
         if [[ ! -z "$package" && "$package" != \#* ]]; then
