@@ -9,6 +9,9 @@ return {
         background = {
           dark = "macchiato",
         },
+        integrations = {
+          neotree = false
+        }
       })
     end
   },

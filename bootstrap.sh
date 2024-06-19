@@ -27,11 +27,7 @@ function handle_laptop_default_config(){
     # Append the laptop-specific configuration to the i3 config file : This is to append the laptop-specific configuration
     echo -e "\n\n# Laptop-specific configuration\n" >> "$I3_CONFIG"
     cat "$LAPTOP_CONFIG" >> "$I3_CONFIG"
-
-    # Modify Polybar configuration to use the laptop-specific configuration
-    POLYBAR_CONFIG="$HOME/.config/polybar/config"
-    sed -i 's/font-0 = "JetBrainsMono NFM:size=11.7"/font-0 = "JetBrains Mono:size=11.7"/' $POLYBAR_CONFIG
-
+    
     # Reload the i3 configuration
     i3-msg reload > /dev/null
   }

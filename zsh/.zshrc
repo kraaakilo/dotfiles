@@ -22,11 +22,5 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
 
-# PYENV Support
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
 # StarShip.rs
 eval "$(starship init zsh)"

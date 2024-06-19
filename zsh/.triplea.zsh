@@ -8,6 +8,7 @@ export PATH=$PATH:$HOME/.config/composer/vendor/bin
 export PATH=$PATH:$HOME/.pub-cache/bin
 export PATH=$PATH:$HOME/apps/cli
 export PATH=$PATH:$HOME/apps/sdks/flutter/bin
+export PATH=$PATH:$HOME/.local/bin
 # PATH Variables | End
 
 # Aliases | Start
