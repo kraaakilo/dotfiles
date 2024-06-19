@@ -60,3 +60,4 @@ esac
 # PNPM | End
 
 bindkey -s ^f "tmux-sessionizer\n"
+bindkey -s ^k "efs\n"

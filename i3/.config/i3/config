@@ -233,6 +233,6 @@ client.placeholder      $bg     $bg     $fg     $bg     $bg
 client.background       $bg
 
 # Windows gaps
-gaps inner 3
-gaps outer 6
+gaps inner 2
+gaps outer 3
 smart_gaps off

@@ -12,20 +12,20 @@ warning = #FBE58A
 
 [bar/default]
 width = 100%
-height = 27pt
-radius = 6
+height = 20pt
+radius = 0
 dpi = 90
 background = ${colors.background}
 foreground = ${colors.foreground}
 line-size = 3pt
-border-size = 5pt
+border-size = 0pt
 border-color = #00000000
 padding-left = 1
 padding-right = 1
 module-margin = 0
 separator = " | "
 separator-foreground = ${colors.disabled}
-font-0 = "JetBrains Mono NL:weight=SemiBold:size=12"
+font-0 = "JetBrains Mono:size=10"
 font-1 = FontAwesome;1
 modules-left = xworkspaces
 modules-right = battery pulseaudio spotify systray
