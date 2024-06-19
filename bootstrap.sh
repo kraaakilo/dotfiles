@@ -4,6 +4,12 @@ HOME_DIR=~
 
 # Function to sync files to the home directory, excluding certain files/directories
 function tripleASetup(){
+    
+    # Check if .local/bin exists, if not create it
+    if [ ! -d "$HOME_DIR/.local/bin" ]; then
+        mkdir -p "$HOME_DIR/.local/bin"
+    fi
+    
     stow */ \
     --ignore="shots" \
     --ignore="packages"
