@@ -158,6 +158,7 @@ format-prefix-foreground = "#1db954"
 format = <label>
 exec = ~/.config/polybar/scripts/scroll_spotify_status.sh
 click-left = playerctl play-pause -p spotify
+click-right = i3-msg "[class=\"Spotify\"] focus"
 scroll-down = playerctl previous -p spotify
 scroll-up = playerctl next -p spotify
 
