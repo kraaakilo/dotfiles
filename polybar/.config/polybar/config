@@ -12,32 +12,34 @@ warning = #FBE58A
 
 [bar/default]
 width = 100%
-height = 20pt
+height = 30pt
 radius = 0
 dpi = 90
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = #aa2F343F
+foreground = $FFFFFF
 line-size = 3pt
 border-size = 0pt
 border-color = #00000000
 padding-left = 1
 padding-right = 1
-module-margin = 0
-separator = " | "
+module-margin = 2
+# separator = " | "
 separator-foreground = ${colors.disabled}
-font-0 = "JetBrains Mono:size=10"
-font-1 = FontAwesome;1
-modules-left = xworkspaces
-modules-right = battery pulseaudio spotify systray
-modules-center = date
+font-0 = "Roboto:size=13;1"
+font-1 = JetBrainsMono Nerd Font;1
+modules-left = arch xworkspaces
+modules-right = battery pulseaudio date systray
+modules-center = spotify
 cursor-click = pointer
 cursor-scroll = ns-resize
 enable-ipc = true
 
-[module/kraaakilo]
+[module/arch]
 type = custom/text
-label = kraaakilo.com
-click-left = xdg-open "https://kraaakilo.com"
+label = 
+format-margin = 3
+click-left = rofi -show drun
+click-right = wal -s -t --recursive -i $HOME/Pictures/wallpapers/favourites/
 
 [module/systray]
 type = internal/tray
@@ -49,15 +51,15 @@ type = internal/xworkspaces
 label-active = %name%
 label-active-background = ${colors.background-alt}
 label-active-underline= ${colors.primary}
-label-active-padding = 1
+label-active-padding = 4
 label-occupied = %name%
-label-occupied-padding = 1
+label-occupied-padding = 4
 label-urgent = %name%
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 1
+label-urgent-padding = 4
 label-empty = %name%
 label-empty-foreground = ${colors.disabled}
-label-empty-padding = 1
+label-empty-padding = 4
 
 [module/xwindow]
 type = internal/xwindow
@@ -73,7 +75,7 @@ label-unmounted-foreground = ${colors.disabled}
 
 [module/pulseaudio]
 type = internal/pulseaudio
-format-volume-prefix = " "
+format-volume-prefix = "   "
 format-volume = <label-volume>
 click-right = pavucontrol
 click-middle=pulseaudio-control --node-blacklist "alsa_output.pci-0000_01_00.1.hdmi-stereo-extra2" next-node
@@ -125,10 +127,10 @@ label-connected = %{F#F0C674}%ifname%%{F-} %local_ip%
 [module/date]
 type = internal/date
 interval = 1
-date = %H:%M (%A)
-date-alt = %Y-%m-%d %H:%M:%S
+date = %H:%M
+date-alt = %Y-%m-%d %H:%M:%S (%A)
 label = %date%
-label-foreground = ${colors.foreground}
+# label-foreground = ${colors.foreground}
 
 [settings]
 screenchange-reload = true
@@ -151,36 +153,13 @@ scroll-down = pulseaudio-control --volume-max 130 down
 type = custom/script
 tail = true
 interval = 1
-format-prefix = " "
+format-prefix = "  "
 format-prefix-foreground = "#1db954"
 format = <label>
 exec = ~/.config/polybar/scripts/scroll_spotify_status.sh
 click-left = playerctl play-pause -p spotify
 scroll-down = playerctl previous -p spotify
 scroll-up = playerctl next -p spotify
-
-[module/spotify-prev]
-type = custom/script
-exec = echo ""
-format = <label>
-click-left = playerctl previous -p spotify
-
-[module/spotify-play-pause]
-type = custom/ipc
-hook-0 = echo ""
-hook-1 = echo ""
-initial = 1
-click-left = playerctl play-pause -p spotify
-
-[module/spotify-next]
-type = custom/script
-exec = echo ""
-format = <label>
-click-left = playerctl next -p spotify
-
-[module/triplea]
-type = custom/text
-label = Mr TripleA
 
 [module/battery]
 type = internal/battery

@@ -35,6 +35,7 @@ alias dccdi='docker rmi $(docker images -f "dangling=true" -q)'
 alias pma='docker rm phpmyadmin --force && docker run --name phpmyadmin -d -e PMA_HOST=192.168.1.30 -p 9876:80 phpmyadmin'
 alias pfn='ping ping-eu.ds.on.epicgames.com'
 alias pve='ssh -i ~/Labs/devops/pve root@192.168.1.10'
+alias ls='eza -al --group-directories-first --icons --git'
 # Aliases | End
 
 # Custom functions | Start

@@ -7,7 +7,10 @@ import = [
 TERM = "xterm-256color"
 
 [font]
-size = 11
+size = 12
+
+[font.offset]
+y = 1
 
 [font.normal]
 family = "JetBrainsMonoNL Nerd Font"
@@ -32,6 +35,7 @@ mouse = "Middle"
 decorations = "buttonless"
 dynamic_padding = false
 padding.x = 12
+padding.y = 10
 
 [shell]
 program = "/usr/bin/zsh"

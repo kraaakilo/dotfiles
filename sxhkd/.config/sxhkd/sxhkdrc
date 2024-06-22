@@ -1,0 +1,2 @@
+super + shift + b
+	polybar-msg cmd toggle

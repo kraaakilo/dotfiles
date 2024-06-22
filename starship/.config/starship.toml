@@ -33,7 +33,7 @@ error_symbol = '[➜](bold red)'
 disabled = true
 
 [directory]
-read_only = " "
+read_only = ""
 read_only_style = "blue"
 home_symbol = "~"
 

@@ -87,7 +87,6 @@ bindsym $mod+r layout toggle split
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+a focus parent
 bindsym $mod+Shift+n exec --no-startup-id ~/.config/i3/scripts/empty_workspace
-bindsym $mod+Shift+b exec --no-startup-id polybar-msg cmd toggle
 bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 1%+ && pkill -RTMIN+1 i3blocks
 bindsym $mod+XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 1%- && pkill -RTMIN+1 i3blocks
 
@@ -119,13 +118,13 @@ bindsym $mod+Ctrl+Down resize shrink height 1 px or 1 ppt
 bindsym $mod+Ctrl+Left resize grow width 1 px or 1 ppt
 
 # Workspace behavior configuration.
-set $ws1 "1:"
-set $ws2 "2:"
-set $ws3 "3:"
-set $ws4 "4:"
-set $ws5 "5:"
-set $ws6 "6:"
-set $ws7 "7:"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
@@ -171,7 +170,7 @@ for_window [class=vlc] focus
 for_window [class="VirtualBox Machine"] focus
 
 # Start applications on i3 startup or reload.
-exec_always --no-startup-id sleep 1 && wal -s -t --recursive -i $HOME/.config/wallpapers/favourites/
+exec_always --no-startup-id sleep 1 && wal -s -t --recursive -i $HOME/Pictures/wallpapers/favourites/
 exec_always --no-startup-id sleep 8 && picom --config ~/.config/picom/picom.conf
 exec_always --no-startup-id "killall polybar; polybar -r default"
 
@@ -179,11 +178,11 @@ exec_always --no-startup-id "killall polybar; polybar -r default"
 # System stuff.
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-
 exec --no-startup-id ~/apps/cli/updater
 exec --no-startup-id sleep 5 && /usr/bin/firefox-developer-edition
-exec --no-startup-id ~/.config/i3/scripts/monitors.sh
+exec --no-startup-id ~/.config/i3/scripts/monitors
 exec --no-startup-id /usr/bin/dunst --config ~/.config/dunst/dunstrc
+exec --no-startup-id "killall sxhkd; sxhkd"
 
 # Power And Screen Management
 
