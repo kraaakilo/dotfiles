@@ -41,23 +41,23 @@ To install these dotfiles, clone the repository and run the `bootstrap.sh` scrip
 ## Screenshots
 
 - Desktop Overview
-    - [![Desktop Overview](shots/shot-2.png)](shots/shot-2.png)
+    - [![Desktop Overview](misc/shots/shot-2.png)](misc/shots/shot-2.png)
 
 - System Information with Neofetch & btop
-    - [![System Information with Neofetch & btop](shots/shot-1.png)](shots/shot-1.png)
+    - [![System Information with Neofetch & btop](misc/shots/shot-1.png)](misc/shots/shot-1.png)
 
 - Rofi Application Launcher
-    - [![Rofi Application Launcher](shots/shot-3.png)](shots/shot-3.png)
+    - [![Rofi Application Launcher](misc/shots/shot-3.png)](misc/shots/shot-3.png)
 
 - Custom Alias (Fuzzy Edit file)
-    - [![Custom Alias (Fuzzy Edit file)](shots/shot-4.png)](shots/shot-4.png)
+    - [![Custom Alias (Fuzzy Edit file)](misc/shots/shot-4.png)](misc/shots/shot-4.png)
 
 - Fuzzy Search with FZF in history
-    - [![Fuzzy Search with FZF in history](shots/shot-5.png)](shots/shot-5.png)
+    - [![Fuzzy Search with FZF in history](misc/shots/shot-5.png)](misc/shots/shot-5.png)
 
 - Terminal with Alacritty
-    - [![Terminal with Alacritty](shots/shot-6.png)](shots/shot-6.png)
+    - [![Terminal with Alacritty](misc/shots/shot-6.png)](misc/shots/shot-6.png)
     
 - Other Screenshots
-    - [![Other Screenshots](shots/shot-9.png)](shots/shot-9.png)
-    - [![Other Screenshots](shots/shot-8.png)](shots/shot-8.png)
+    - [![Other Screenshots](misc/shots/shot-9.png)](misc/shots/shot-9.png)
+    - [![Other Screenshots](misc/shots/shot-8.png)](misc/shots/shot-8.png)
