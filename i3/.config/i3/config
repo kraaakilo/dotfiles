@@ -235,3 +235,6 @@ client.background       $bg
 gaps inner 2
 gaps outer 3
 smart_gaps off
+
+# Handle Mouse Sensitivity on my Thinkpad
+exec_always --no-startup-id "xinput --set-prop $(xinput list | grep TouchPad | awk '{print $6}' | cut -d '=' -f2) 'libinput Accel Speed' 0.7"

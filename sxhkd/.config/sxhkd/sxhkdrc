@@ -1,2 +1,8 @@
 super + shift + b
 	polybar-msg cmd toggle
+
+XF86MonBrightnessDown
+  ~/.config/i3/scripts/brightness down
+
+XF86MonBrightnessUp
+  ~/.config/i3/scripts/brightness up

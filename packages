@@ -42,26 +42,17 @@ function install_yay {
     echo "yay installation completed successfully."
 }
 
-function install_aur_packages {
-    AUR_PACKAGES="misc/packages/aur.list"
-    echo "Reading package list from $AUR_PACKAGES."
-    while IFS= read -r package || [[ -n "$package" ]]; do
-        if [[ ! -z "$package" && "$package" != \#* ]]; then
-            echo "Installing $package..."
-            yay -S --noconfirm "$package" || error_exit "Failed to install $package."
-        fi
-    done < "$AUR_PACKAGES"
-    echo "AUR packages installation completed successfully."
-}
-
-
-function install_official_packages {
-    OFFICIAL_PACKAGES="misc/packages/extra.list"
+function install_packages {
+    OFFICIAL_PACKAGES="misc/packages/programs.list"
     echo "Reading package list from $OFFICIAL_PACKAGES."
     while IFS= read -r package || [[ -n "$package" ]]; do
         if [[ ! -z "$package" && "$package" != \#* ]]; then
+            if pacman -Q "$package" &> /dev/null; then
+                echo "$package is already installed. Skipping..."
+                continue
+            fi
             echo "Installing $package..."
-            sudo pacman -S --noconfirm "$package" || error_exit "Failed to install $package."
+            yay -S --noconfirm "$package" || error_exit "Failed to install $package."
         fi
     done < "$OFFICIAL_PACKAGES"
     echo "Official packages installation completed successfully."
@@ -92,7 +83,7 @@ function setup_tmux {
 
 function main {
     if [[ "$#" -eq 0 ]]; then
-        echo "Usage: $0 [yay|aur|official|oh-my-zsh|tmux|all]"
+        echo "Usage: $0 [yay|default|omz|tmux|all]"
         exit 1
     fi
 
@@ -101,11 +92,8 @@ function main {
             yay)
                 install_yay
                 ;;
-            aur)
-                install_aur_packages
-                ;;
-            official)
-                install_official_packages
+            default)
+                install_packages
                 ;;
             omz)
                 install_oh_my_zsh
@@ -115,8 +103,7 @@ function main {
                 ;;
             all)
                 install_yay
-                install_aur_packages
-                install_official_packages
+                install_packages
                 install_oh_my_zsh
                 setup_tmux
                 ;;
