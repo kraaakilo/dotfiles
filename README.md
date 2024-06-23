@@ -39,4 +39,4 @@ To install these dotfiles, clone the repository and run the `bootstrap.sh` scrip
     ```
 
 ## Screenshot
-    - [![Desktop Overview](misc/shot.png)](misc/shot.png)
+![Desktop Overview](misc/shot.png)
