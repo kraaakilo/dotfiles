@@ -23,20 +23,16 @@ To install these dotfiles, clone the repository and run the `bootstrap.sh` scrip
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/kraaakilo/dotfiles.git
+   git clone https://github.com/kraaakilo/.dotfiles.git
    ```
 2. Navigate to the dotfiles directory:
    ```sh
-   cd dotfiles
+   cd .dotfiles
    ```
-3. Make the `bootstrap.sh` script executable:
+3. Stow what is needed
    ```sh
-   chmod +x bootstrap.sh
-   ```
-4. Run the script:
-   ```sh
-    ./bootstrap.sh
-    ```
+   stow example
 
+   ```
 ## Screenshot
 ![Desktop Overview](misc/shot.png)

@@ -2,7 +2,7 @@
 
 # Function to display an error message and exit
 function error_exit {
-    echo "$1" 1>&2
+    echo -e "${RED}$1${NO_COLOR}" 1>&2
     exit 1
 }
 
@@ -11,31 +11,17 @@ function log {
 }
 
 function install_yay {
-    
-    # Ensure the script is run as a non-root user with sudo privileges
     if [[ "$EUID" -eq 0 ]]; then
         error_exit "Please run this script as a non-root user with sudo privileges."
     fi
-    
-    # Prompt for sudo password upfront
     sudo -v || error_exit "Failed to obtain sudo privileges."
-    
-    # Update the system and install necessary packages
     echo "Updating system and installing necessary packages..."
     sudo pacman -Syu --needed base-devel git --noconfirm || error_exit "Failed to install base-devel and git."
-    
-    # Clone the yay repository from the AUR
     echo "Cloning the yay repository..."
     git clone https://aur.archlinux.org/yay.git || error_exit "Failed to clone the yay repository."
-    
-    # Change to the yay directory
     cd yay || error_exit "Failed to change to the yay directory."
-    
-    # Build and install yay
     echo "Building and installing yay..."
     makepkg -si --noconfirm || error_exit "Failed to build and install yay."
-    
-    # Clean up by removing the cloned repository
     cd ..
     rm -rf yay
     
@@ -44,18 +30,40 @@ function install_yay {
 
 function install_packages {
     OFFICIAL_PACKAGES="misc/packages/programs.list"
+    total_packages=$(grep -vcE '^\s*(#|$)' "$OFFICIAL_PACKAGES")
+    current_package=0
+
+    RED='\033[0;31m'
+    GREEN='\033[0;32m'
+    BLUE='\033[0;34m'
+    NO_COLOR='\033[0m'
+
     echo "Reading package list from $OFFICIAL_PACKAGES."
+
     while IFS= read -r package || [[ -n "$package" ]]; do
         if [[ ! -z "$package" && "$package" != \#* ]]; then
+            ((current_package++))
+            progress=$(echo "scale=2; $current_package / $total_packages * 100" | bc)
+
             if pacman -Q "$package" &> /dev/null; then
-                echo "$package is already installed. Skipping..."
+                echo -e "${BLUE}[ $(printf "%5.1f" $progress)% ] $package is already installed. Skipping...${NO_COLOR}"
                 continue
             fi
-            echo "Installing $package..."
-            yay -S --noconfirm "$package" || error_exit "Failed to install $package."
+
+            echo -e "${GREEN}[ $(printf "%5.1f" $progress)% ] Installing $package...${NO_COLOR}"
+            if yay -S --noconfirm "$package" &> /dev/null; then
+                if pacman -Q "$package" &> /dev/null; then
+                    echo -e "${GREEN}[ OK ] $package installed successfully.${NO_COLOR}"
+                else
+                    echo -e "${RED}[ NOT FOUND ] Package $package not found.${NO_COLOR}"
+                fi
+            else
+                echo -e "${RED}[ FAILED ] Failed to install $package.${NO_COLOR}"
+                error_exit "Failed to install $package."
+            fi
         fi
     done < "$OFFICIAL_PACKAGES"
-    echo "Official packages installation completed successfully."
+    echo -e "${GREEN}Official packages installation completed successfully.${NO_COLOR}"
 }
 
 function install_oh_my_zsh {
