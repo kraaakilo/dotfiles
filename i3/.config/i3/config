@@ -66,10 +66,6 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym $mod+q kill
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+b focus up
-bindsym $mod+o focus right
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -116,6 +112,23 @@ bindsym $mod+Ctrl+Right resize shrink width 1 px or 1 ppt
 bindsym $mod+Ctrl+Up resize grow height 1 px or 1 ppt
 bindsym $mod+Ctrl+Down resize shrink height 1 px or 1 ppt
 bindsym $mod+Ctrl+Left resize grow width 1 px or 1 ppt
+
+bindsym $mod+o mode "apps"
+mode "apps" {
+    bindsym s exec spotify-launcher
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
+bindsym $alt+r mode "resize"
+mode "resize" {
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 # Workspace behavior configuration.
 set $ws1 "1"
@@ -185,7 +198,6 @@ exec --no-startup-id /usr/bin/dunst --config ~/.config/dunst/dunstrc
 exec --no-startup-id "killall sxhkd; sxhkd"
 
 # Power And Screen Management
-
 # Disable the default screen saver
 exec --no-startup-id xset s off
 # Disable DPMS (Energy Star) features to reset the values
@@ -237,4 +249,4 @@ gaps outer 3
 smart_gaps off
 
 # Handle Mouse Sensitivity on my Thinkpad
-exec_always --no-startup-id "xinput --set-prop $(xinput list | grep TouchPad | awk '{print $6}' | cut -d '=' -f2) 'libinput Accel Speed' 0.7"
+exec_always --no-startup-id "xinput --set-prop $(xinput list | grep TouchPad | awk '{print $6}' | cut -d '=' -f2) 'libinput Accel Speed' 0.65"

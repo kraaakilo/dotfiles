@@ -198,7 +198,7 @@ animation-low-framerate = 200
 
 [module/i3workspaces]
 type = internal/i3
-pin-workspaces = true
+pin-workspaces = false
 show-urgent = true
 strip-wsnumbers = true
 index-sort = true
