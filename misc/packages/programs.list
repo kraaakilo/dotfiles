@@ -54,7 +54,6 @@ eza
 f2fs-tools
 fd
 ffmpegthumbnailer
-firefox
 firefox-developer-edition
 firewalld
 fsarchiver
@@ -211,7 +210,7 @@ xorg-xkill
 xsel
 yarn
 yay
-youtube-dl
+yt-dlp
 zip
 zscroll-git
 zsh
