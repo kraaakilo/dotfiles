@@ -78,9 +78,9 @@ hdparm
 htop
 hwdetect
 hwinfo
+i3-wm
 i3blocks
 i3status
-i3-wm
 inetutils
 intel-ucode
 inxi
@@ -110,6 +110,7 @@ meld
 mesa-utils
 mlocate
 modemmanager
+mousepad
 mpv
 mtools
 nano-syntax-highlighting
@@ -152,9 +153,9 @@ pv
 python-pyqt5
 python-setuptools
 pywal-git
-qt5ct
 qt5-graphicaleffects
 qt5-quickcontrols2
+qt5ct
 qt6ct
 ranger
 rebuild-detector
@@ -164,11 +165,11 @@ ripgrep
 rofi
 rsync
 rtkit
+s-nail
 scrot
 sddm-kcm
 sg3_utils
 smartmontools
-s-nail
 sof-firmware
 spicetify-cli
 spotify-launcher
@@ -201,7 +202,6 @@ xautolock
 xbindkeys
 xdebug
 xdg-user-dirs-gtk
-xed
 xfsprogs
 xl2tpd
 xorg-xbacklight
