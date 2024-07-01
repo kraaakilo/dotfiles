@@ -204,7 +204,7 @@
     max_icon_size = 72
 
     # Paths to default icons.
-    icon_theme = Arc
+    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
     ### History ###
 
@@ -473,6 +473,4 @@
 #    appname = "some_volume_notifiers"
 #    set_stack_tag = "volume"
 #
-[play_sound]
-    summary = "*"
-    script = /home/kraaakilo/.config/dunst/sound.sh
+# vim: ft=cfg

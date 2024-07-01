@@ -36,6 +36,7 @@ alias pma='docker rm phpmyadmin --force && docker run --name phpmyadmin -d -e PM
 alias pfn='ping ping-eu.ds.on.epicgames.com'
 alias pve='ssh -i ~/Labs/devops/pve root@192.168.1.10'
 alias ls='eza -al --group-directories-first --icons --git'
+alias pysrv='python3 -m http.server'
 # Aliases | End
 
 # Custom functions | Start
